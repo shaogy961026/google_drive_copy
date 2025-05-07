@@ -178,6 +178,9 @@ def main():
     print("開始複製資料夾...")
     processed_items, new_folder_id, creds = copy_folder_recursive(service, source_folder_id, destination_folder_id, total_items, 0, creds, cache)
     
+    print('停止60秒 等待雲端同步中')
+    time.sleep(60)
+    
     print("正在驗證複製結果...")
     if new_folder_id:
         cache, creds = cache_folder_structure(service, new_folder_id, creds)
